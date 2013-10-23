@@ -1,0 +1,36 @@
+﻿@model IEnumerable<PaperCommunity.Models.PlayerTeam>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Spelare/Lag kombinationer</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            <strong>
+                @Html.DisplayFor(modelItem => item.Player.Username) 
+            </strong>
+            med
+            <strong>    
+                @Html.DisplayFor(modelItem => item.Team.Name) 
+            </strong>
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,26 @@
+﻿@model PaperCommunity.ViewModels.PlayerDetailsViewModel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+
+<fieldset>
+    <legend>Player</legend>
+
+    <h2>
+        @Html.DisplayFor(model => model.Player.Username)
+    </h2>
+    <br />
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Player.DefaultTeam) : @Html.DisplayFor(model => model.Player.DefaultTeam.Name)
+    </div>
+</fieldset>
+<fieldset>
+    <legend>Table</legend>
+    @Html.DisplayFor(model => model.OverallPlayerData, "OverallPlayerDataList")
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.Player.Username }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

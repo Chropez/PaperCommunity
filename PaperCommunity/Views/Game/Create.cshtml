@@ -1,0 +1,64 @@
+﻿@model PaperCommunity.Models.Game
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Game</legend>
+
+
+        
+        <div class="editor-label">
+            @Html.LabelFor(model => model.HomeTeam)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.HomeTeam)
+            @Html.ValidationMessageFor(model => model.HomeTeam)
+        </div>
+
+        
+        
+        <div class="editor-label">
+            @Html.LabelFor(model => model.HomeGoals)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.HomeGoals)
+            @Html.ValidationMessageFor(model => model.HomeGoals)
+        </div>
+
+        
+        <div class="editor-label">
+            @Html.LabelFor(model => model.AwayTeam)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.AwayTeam)
+            @Html.ValidationMessageFor(model => model.AwayTeam)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.AwayGoals)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.AwayGoals)
+            @Html.ValidationMessageFor(model => model.AwayGoals)
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

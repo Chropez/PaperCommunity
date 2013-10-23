@@ -1,0 +1,40 @@
+﻿@model IList<PaperCommunity.Entities.OverallPlayerData>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Player</th>
+                        <th>P</th>
+                        <th>W</th>
+                        <th>D</th>
+                        <th>L</th>
+                        <th>W%</th>
+                        <th>GF</th>
+                        <th>GA</th>
+                        <th>GD</th>
+                        <th>PTS</th>
+                    </tr>
+                </thead>
+                <tbody>
+                @foreach(var player in Model){
+                    int GoalDifference = player.GoalsFor - player.GoalsAgainst ;
+                    double WinRateDec = (double)player.Wins / (double)player.Played;
+                    String WinRate = WinRateDec.ToString("P0");
+                    
+                    <tr>
+                        <td>
+                            @Html.ActionLink(player.Player.Username, "Details", "Player", new { id = player.Player.Username }, null)
+                        </td>
+                        <td>@Html.DisplayFor(model => player.Played)</td>
+                        <td>@Html.DisplayFor(model => player.Wins)</td>
+                        <td>@Html.DisplayFor(model => player.Draws)</td>
+                        <td>@Html.DisplayFor(model => player.Losses)</td>
+                        <td>@WinRate</td>
+                        <td>@Html.DisplayFor(model => player.GoalsFor)</td>
+                        <td>@Html.DisplayFor(model => player.GoalsAgainst)</td>
+                        <td>@GoalDifference</td>
+                        <td>@Html.DisplayFor(model => player.Points)</td>   
+                    </tr>
+                }
+                </tbody>
+
+            </table>

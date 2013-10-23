@@ -1,0 +1,63 @@
+﻿@model PaperCommunity.Models.Game
+
+<fieldset>
+    <legend>Game</legend>
+
+
+
+   
+    <div class="editor-label">
+        @Html.LabelFor(model => model.HomePlayer)
+    </div>
+    <div class="editor-field">
+        @Html.EditorFor(model => model.HomePlayer.Username)
+        @Html.ValidationMessageFor(model => model.HomePlayer.Username)
+    </div>
+
+    <div class="editor-label">
+        @Html.LabelFor(model => model.HomeTeam)
+    </div>
+    <div class="editor-field">
+        @Html.EditorFor(model => model.HomeTeam.Name)
+        @Html.ValidationMessageFor(model => model.HomeTeam.Name)
+    </div>
+
+
+
+    <div class="editor-label">
+        @Html.LabelFor(model => model.HomeGoals)
+    </div>
+    <div class="editor-field">
+        @Html.EditorFor(model => model.HomeGoals)
+        @Html.ValidationMessageFor(model => model.HomeGoals)
+    </div>
+
+
+
+
+    <div class="editor-label">
+        @Html.LabelFor(model => model.AwayPlayer)
+    </div>
+    <div class="editor-field">
+        @Html.EditorFor(model => model.AwayPlayer.Username)
+        @Html.ValidationMessageFor(model => model.AwayPlayer.Username)
+    </div>
+
+    <div class="editor-label">
+        @Html.LabelFor(model => model.AwayTeam)
+    </div>
+    <div class="editor-field">
+        @Html.EditorFor(model => model.AwayTeam.Name)
+        @Html.ValidationMessageFor(model => model.AwayTeam.Name)
+    </div>
+
+    <div class="editor-label">
+        @Html.LabelFor(model => model.AwayGoals)
+    </div>
+    <div class="editor-field">
+        @Html.EditorFor(model => model.AwayGoals)
+        @Html.ValidationMessageFor(model => model.AwayGoals)
+    </div>
+
+
+</fieldset>

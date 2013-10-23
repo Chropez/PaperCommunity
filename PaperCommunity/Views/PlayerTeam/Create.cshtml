@@ -1,0 +1,42 @@
+﻿@model PaperCommunity.Models.PlayerTeam
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>PlayerTeam</legend>
+
+         <div class="editor-label">
+            @Html.LabelFor(model => model.Player)
+        </div>
+        <div class="editor-field">
+            @Html.DropDownListFor(model => model.Player.Username, (SelectList) ViewBag.PlayerList)
+            @Html.ValidationMessageFor(model => model.Player)
+        </div>
+
+         <div class="editor-label">
+            @Html.LabelFor(model => model.Team)
+        </div>
+        <div class="editor-field">
+            @Html.DropDownListFor(model => model.Team.Name, (SelectList) ViewBag.TeamList)
+            @Html.ValidationMessageFor(model => model.Team)
+        </div>
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

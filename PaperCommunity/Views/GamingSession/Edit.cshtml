@@ -1,0 +1,84 @@
+﻿@model PaperCommunity.ViewModels.GamingSessionViewModel
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Gaming Session</h2>
+@using (Html.BeginForm())
+{
+    <div class="editor-label">
+        @Html.LabelFor(model => model.GamingSession.Date)
+    </div>
+    <div class="editor-field">
+        @Html.EditorFor(model => model.GamingSession.Date)
+        @Html.ValidationMessageFor(model => model.GamingSession.Date)
+    </div>
+
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>GamingSession</legend>
+
+        @Html.HiddenFor(model => model.GamingSession.id)
+
+        
+        <div class="New-Game-Form">
+            @Html.EditorFor(model => model.NewGame)
+        </div>
+
+
+        <div class="Session-Games">
+            <h3>Played Games</h3>
+            <table>
+                <tbody>
+                    @{int gameCounter = 0;}
+                    @foreach (var game in Model.GamingSession.Games)
+                    {
+                        <tr>
+                            <td>gameCounter</td>
+                            <td>
+                                @Html.DisplayFor(g => game.HomePlayer.Username)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(g => game.HomeTeam.Name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(g => game.HomeGoals)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(g => game.AwayGoals)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(g => game.AwayTeam.Name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(g => game.AwayPlayer.Username)
+                            </td>
+                        </tr>
+                        
+                        gameCounter++;
+                    }
+                </tbody>
+            </table>
+        </div>
+
+        
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+ 
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+ 
+    <script  type="text/javascript"> 
+
+    </script>
+}

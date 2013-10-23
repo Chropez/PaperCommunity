@@ -1,0 +1,45 @@
+﻿@model PaperCommunity.Models.Game
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Game</legend>
+
+        @Html.HiddenFor(model => model.id)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.HomeGoals)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.HomeGoals)
+            @Html.ValidationMessageFor(model => model.HomeGoals)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.AwayGoals)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.AwayGoals)
+            @Html.ValidationMessageFor(model => model.AwayGoals)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

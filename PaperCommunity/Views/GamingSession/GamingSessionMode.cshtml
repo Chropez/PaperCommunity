@@ -1,0 +1,11 @@
+﻿@model PaperCommunity.ViewModels.GamingSessionViewModel
+@{
+    ViewBag.Title = "GamingSessionMode";
+}
+
+<h2>Gaming Session</h2>
+<span>@Html.DisplayFor(model =>  model.GamingSession.Date)</span>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>

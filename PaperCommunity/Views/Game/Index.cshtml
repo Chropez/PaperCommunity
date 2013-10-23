@@ -1,0 +1,108 @@
+﻿@model IEnumerable<PaperCommunity.Models.Game>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+        </th>
+        <th>
+            Games
+        </th>
+        <th>
+        </th>
+        <th>
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.HomeGoals)*@
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.AwayGoals)*@
+        </th>
+        <th></th>
+    </tr>
+@{
+    var counter = 0;
+}
+@foreach (var item in Model) {
+
+        counter++;
+        var homeTeamName = this.Html.DisplayFor(ModelItem => item.HomeTeam.Player.Username) + " (" + this.Html.DisplayFor(ModelItem => item.HomeTeam.Team.Name) + ")";
+        var awayTeamName = this.Html.DisplayFor(ModelItem => item.AwayTeam.Player.Username) + " (" + this.Html.DisplayFor(ModelItem => item.AwayTeam.Team.Name) + ")";
+          
+    
+    <tr>
+        
+        <td>
+            @counter .
+        </td>
+        <td>
+            @if(item.HomeGoals > item.AwayGoals){
+                <strong>@homeTeamName</strong>
+            }
+            else if (item.HomeGoals == item.AwayGoals)
+            {
+                <em>@homeTeamName</em>
+            }else{
+                @homeTeamName
+            }
+            
+        </td>        
+        <td>
+            @if(item.HomeGoals > item.AwayGoals){
+                <strong>@Html.DisplayFor(modelItem => item.HomeGoals)</strong>
+            }
+            else if (item.HomeGoals == item.AwayGoals)
+            {
+                <em>@Html.DisplayFor(modelItem => item.HomeGoals)</em>
+            }else{
+                @Html.DisplayFor(modelItem => item.HomeGoals)
+            }
+            
+        </td>
+        <td>
+            -
+        </td>
+        <td>
+            
+            @if(item.HomeGoals < item.AwayGoals){
+                <strong>@Html.DisplayFor(modelItem => item.AwayGoals)</strong>
+            }
+            else if (item.HomeGoals == item.AwayGoals)
+            {
+                <em>@Html.DisplayFor(modelItem => item.AwayGoals)</em>
+            }
+            else{
+                @Html.DisplayFor(modelItem => item.AwayGoals)
+            }
+        </td>
+        <td>
+            @if(item.HomeGoals < item.AwayGoals){
+                <strong>@awayTeamName</strong>
+            }
+            else if (item.HomeGoals == item.AwayGoals)
+            {
+                <em>@awayTeamName</em>
+            }
+            else{
+                @awayTeamName
+            }
+        </td>
+
+
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+        </td>
+    </tr>
+}
+
+</table>

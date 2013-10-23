@@ -1,0 +1,45 @@
+﻿@model PaperCommunity.ViewModels.HomeViewModel
+
+@{
+    ViewBag.Title = "Home Page";
+   
+}
+@section featured {
+    @*
+    <section class="featured">
+        <div class="content-wrapper">
+            <hgroup class="title">
+                <h1>Paper Community - </h1>
+                <h2>The way it's supposed to be</h2>
+
+            </hgroup>
+                <h3>Overall Table</h3>
+
+            @Html.DisplayFor(model => model.overallPlayerData, "OverallPlayerDataList")
+
+        </div>
+    </section>
+*@
+
+    <div id="myCarousel" class="carousel slide">
+            <ol class="carousel-indicators">
+                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                <li data-target="#myCarousel" data-slide-to="1"></li>
+                <li data-target="#myCarousel" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner">
+                <div class="item active">
+                    <div class="container">
+                        <div class="carousel-caption">
+                            <h1>Paper Community</h1>
+                            <p>
+                                Who wins, who dissapears, the devil's on fire.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+    </div>
+
+}
